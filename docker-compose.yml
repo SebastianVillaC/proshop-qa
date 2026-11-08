@@ -1,0 +1,34 @@
+# Infraestructura de pruebas para ProShop v2 (sistema bajo prueba)
+# Uso:
+#   docker compose up -d mongo                  -> base de datos de la app
+#   docker compose --profile sonar up -d        -> SonarQube en http://localhost:9000
+services:
+  mongo:
+    image: mongo:7
+    container_name: proshop-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  sonarqube:
+    image: sonarqube:community
+    container_name: proshop-sonarqube
+    profiles: ["sonar"]
+    ports:
+      - "9000:9000"
+    environment:
+      - SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true
+    volumes:
+      - sonar-data:/opt/sonarqube/data
+      - sonar-extensions:/opt/sonarqube/extensions
+
+volumes:
+  mongo-data:
+  sonar-data:
+  sonar-extensions:

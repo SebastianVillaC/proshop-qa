@@ -1,0 +1,13 @@
+{
+  "name": "proshop-qa",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Aseguramiento de calidad sobre ProShop v2 (MERN) - Caso práctico final",
+  "scripts": {
+    "app:install": "npm install --prefix app && npm install --prefix app/frontend",
+    "app:seed": "npm run data:import --prefix app",
+    "app:dev": "npm run dev --prefix app"
+  },
+  "license": "MIT"
+}

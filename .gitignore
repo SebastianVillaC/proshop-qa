@@ -1,0 +1,27 @@
+# Dependencias
+node_modules/
+
+# Variables de entorno (nunca subir secretos)
+.env
+.env.*
+!.env.example
+
+# Artefactos generados localmente (se regeneran con los comandos del README)
+coverage/
+app/frontend/build/
+.scannerwork/
+tests/e2e/test-results/
+evidencias/playwright/test-results/
+tests/e2e/playwright-report/
+
+# Archivos subidos durante las pruebas
+app/uploads/*
+!app/uploads/.gitkeep
+uploads/
+
+# Sistema operativo / editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
