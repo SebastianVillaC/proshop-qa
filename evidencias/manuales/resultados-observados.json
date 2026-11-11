@@ -1,0 +1,57 @@
+{
+  "CP-01": [
+    "Usuario en cabecera: \"John Doe\", URL: http://localhost:3000/"
+  ],
+  "CP-02": [
+    "pass-incorrecta: mensaje \"Invalid email or password\", URL http://localhost:3000/login",
+    "email-no-registrado: mensaje \"Invalid email or password\", URL http://localhost:3000/login",
+    "campos-vacios: mensaje \"Invalid email or password\", URL http://localhost:3000/login"
+  ],
+  "CP-03": [
+    "password 5-caracteres: cuenta CREADA y sesión iniciada como QA 5-caracteres (URL http://localhost:3000/)",
+    "password 6-caracteres: cuenta CREADA y sesión iniciada como QA 6-caracteres (URL http://localhost:3000/)"
+  ],
+  "CP-04": [
+    "email idéntico \"john@email.com\": mensaje \"User already exists\"",
+    "email \"JOHN@EMAIL.COM\": cuenta CREADA, sesión como John Duplicado"
+  ],
+  "CP-05": [
+    "keyword \"sony\": 1 productos",
+    "keyword \"(\": ERROR visible: \"Regular expression is invalid: missing closing parenthesis\"",
+    "keyword \"*\": ERROR visible: \"Regular expression is invalid: quantifier does not follow a repeatable item\""
+  ],
+  "CP-06": [
+    "Airpods (stock 10): opciones de cantidad 1..10 (10 opciones)",
+    "Echo Dot (stock 0): estado \"Out Of Stock\", botón Add To Cart deshabilitado=true, selector de cantidad visible=false"
+  ],
+  "CP-07": [
+    "mouse-x2-99.98: Items $99.98 | Shipping $10.00 | Tax $15.00 | Total $124.98",
+    "mouse-x3-149.97: Items $149.97 | Shipping $0.00 | Tax $22.50 | Total $172.47"
+  ],
+  "CP-08": [
+    "Address vacío: navegador bloquea envío con \"Please fill out this field.\", URL sigue en http://localhost:3000/shipping"
+  ],
+  "CP-09": [
+    "sin sesión: \"Please sign in to write a review\"",
+    "reseña primera (rating 5): mensaje \"Review created successfully\"",
+    "reseña duplicada (rating 3): mensaje \"Product already reviewed\""
+  ],
+  "CP-10": [
+    "precio -10 / stock -3: toast \"Product updated\", fila en listado: \"6aefd43de09c79633d7061bf Producto VL negativo $-10 Sample category Sample brand \""
+  ],
+  "CP-11": [
+    "subir .txt: mensaje \"Images only!\""
+  ],
+  "CP-12": [
+    "actualizar nombre: \"Profile updated successfully\", cabecera \"Jane QA\"",
+    "contraseñas distintas: \"Passwords do not match\""
+  ],
+  "CP-13": [
+    "John crea pedido 6aefd443e09c79633d7061e2",
+    "Jane abre http://localhost:3000/order/6aefd443e09c79633d7061e2: VE el pedido de John (email john@email.com y dirección \"Carrera 65 # 98-12 (dirección privada de John), Medellín 050001, Colombia\")"
+  ],
+  "CP-14": [
+    "móvil 375px: menú hamburguesa visible=true, ancho de documento=375px (sin scroll horizontal=true)",
+    "al abrir menú: buscador visible=true, enlace Sign In visible=true"
+  ]
+}
