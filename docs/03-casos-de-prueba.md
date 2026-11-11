@@ -224,3 +224,37 @@
 | Resultado obtenido | Ancho del documento de 375 px (sin scroll horizontal) y menú visible. Al abrirlo se ven el buscador y Sign In. |
 | Estado | ✅ **Aprobado** |
 | Evidencia | `CP-14-movil-inicio.png`, `CP-14-movil-menu-abierto.png` |
+
+## 3.3 Casos automatizados E2E (Playwright)
+
+**Ubicación:** `tests/e2e/specs/`. Cada prueba guarda una captura (`screenshot: 'on'`) y, si falla, también video y traza.
+
+| ID | Nombre | Requisito | Técnica | Datos | Resultado esperado | Estado |
+|---|---|---|---|---|---|---|
+| E2E-01 | Inicio de sesión válido | RF01 | PE válida | john / 123456 | URL `/` y "John Doe" en la cabecera | ✅ Aprobado |
+| E2E-02 | Contraseña incorrecta | RF01 | PE inválida | john / incorrecta | Toast "Invalid email or password" | ✅ Aprobado |
+| E2E-03 | Registro: confirmación distinta y luego registro exitoso | RF02 | PE | 123456 / 1234567 | "Passwords do not match" y luego la cuenta creada | ✅ Aprobado |
+| E2E-04 | Rutas protegidas sin sesión | RF09 | TD | /profile, /shipping, /admin/productlist | Redirige a `/login` | ✅ Aprobado |
+| E2E-05 | Búsqueda con y sin resultados | RF04 | PE | iphone, zzzz | 1 y 0 productos | ✅ Aprobado |
+| E2E-06 | Producto sin stock | RF06 | VL (stock = 0) | Echo Dot | "Out Of Stock" y botón deshabilitado | ✅ Aprobado |
+| E2E-07 | Búsqueda con "(" | RF04 | PE inválida | ( | Sin error y 0 productos | ❌ Fallido esperado (DEF-10) |
+| E2E-08 | Compra completa con verificación de totales | RF06 | TD + VL | Airpods × 2 | 179.98 / 0.00 / 27.00 / 206.98 y pedido creado | ✅ Aprobado |
+| E2E-09 | Admin crea y edita un producto | RF08 | — | Teclado QA, 120.50, stock 4 | El producto se actualiza en el listado | ✅ Aprobado |
+| E2E-10 | Un cliente no accede a la administración | RF09 | TD | john | Sin menú Admin y sin acceso a /admin | ✅ Aprobado |
+
+**Resultado de la ejecución:** 10 pruebas en 17 s, 9 aprobadas y 1 que falla como se esperaba por DEF-10. Ver `evidencias/playwright/html-report/index.html`.
+
+## 3.4 Casos automatizados de API e unitarios (Jest)
+
+| Suite | Pruebas | Comportamiento correcto | Defectos documentados (`test.failing`) |
+|---|---|---|---|
+| `unit/calcPrices.test.js` | 11 | 11 | — |
+| `unit/generateToken.test.js` | 3 | 3 | — |
+| `unit/middleware.test.js` | 11 | 11 | — |
+| `integration/users.api.test.js` | 21 | 14 | DEF-07 (×2), DEF-08, DEF-09 (×2), DEF-15, DEF-16 |
+| `integration/products.api.test.js` | 24 | 18 | DEF-09, DEF-10, DEF-05 (×2), DEF-06 (×2) |
+| `integration/orders.api.test.js` | 17 | 11 | DEF-09 (×2), DEF-01 (×2), DEF-04, DEF-02 |
+| `integration/upload.api.test.js` | 4 | 3 | DEF-03 |
+| **Total** | **91** | **70** | **21** |
+
+> **Cómo leer la tabla:** `test.failing` documenta un defecto. La prueba afirma el comportamiento esperado y Jest la reporta en verde *mientras falle*. Si alguien corrige el defecto sin actualizar la prueba, Jest lo avisa con un error. Ver la convención en el README.

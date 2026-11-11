@@ -1,0 +1,205 @@
+# Pipeline de integración continua de QA para ProShop v2
+# Se ejecuta en cada push y pull request a main, y manualmente (workflow_dispatch).
+#
+#  ┌─────────────────────┐   ┌──────────────────────────────┐   ┌──────────────────────┐
+#  │ 1. backend-tests    │──►│ 2. e2e-y-dast                │   │ 3. dependencias (SCA)│
+#  │ unit + integración  │   │ app + Mongo + Playwright     │   │ npm audit            │
+#  │ + cobertura         │   │ + ZAP baseline + OWASP checks│   └──────────────────────┘
+#  └─────────┬───────────┘   └──────────────────────────────┘
+#            └──────────────►┌──────────────────────────────┐
+#                            │ 4. sonarqube (opcional)      │  requiere secrets SONAR_TOKEN / SONAR_HOST_URL
+#                            └──────────────────────────────┘
+name: CI - QA ProShop
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  NODE_VERSION: '20'
+
+jobs:
+  backend-tests:
+    name: Pruebas unitarias e integración (Jest)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # historial completo para SonarQube
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            app/package-lock.json
+
+      - name: Instalar dependencias (QA y backend)
+        run: |
+          npm ci
+          npm ci --prefix app
+
+      - name: Ejecutar pruebas con cobertura
+        run: npm run test:coverage
+
+      - name: Publicar resumen de cobertura
+        if: always()
+        run: |
+          echo "### Cobertura del backend" >> $GITHUB_STEP_SUMMARY
+          node -e "const s=require('./coverage/coverage-summary.json').total;for(const k of ['lines','statements','branches','functions'])console.log('| '+k+' | '+s[k].pct+' % |')" \
+            | (echo '| Métrica | % |'; echo '|---|---|'; cat) >> $GITHUB_STEP_SUMMARY
+
+      - name: Subir reportes
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reportes-backend
+          path: |
+            coverage/
+            evidencias/jest/junit-backend.xml
+
+  e2e-y-dast:
+    name: E2E (Playwright) + DAST (ZAP baseline)
+    runs-on: ubuntu-latest
+    needs: backend-tests
+    timeout-minutes: 30
+    services:
+      mongo:
+        image: mongo:7
+        ports: ['27017:27017']
+        options: >-
+          --health-cmd "mongosh --quiet --eval 'db.adminCommand(\"ping\")'"
+          --health-interval 10s --health-timeout 5s --health-retries 10
+    env:
+      NODE_ENV: development
+      PORT: 5001
+      MONGO_URI: mongodb://localhost:27017/proshop
+      JWT_SECRET: ci-${{ github.run_id }}-secret
+      PAGINATION_LIMIT: 8
+      PAYPAL_CLIENT_ID: sb
+      BROWSER: none
+      CI: true
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+          cache-dependency-path: |
+            app/package-lock.json
+            app/frontend/package-lock.json
+            tests/e2e/package-lock.json
+
+      - name: Instalar la aplicación
+        run: |
+          npm ci --prefix app
+          npm ci --prefix app/frontend
+
+      - name: Sembrar base de datos
+        run: npm run data:import --prefix app
+
+      - name: Levantar ProShop (API :5001 + frontend :3000)
+        run: |
+          nohup npm run dev --prefix app > app.log 2>&1 &
+          npx --yes wait-on@8 --timeout 180000 http://localhost:5001/api/products http://localhost:3000
+
+      - name: Instalar Playwright
+        working-directory: tests/e2e
+        run: |
+          npm ci
+          npx playwright install --with-deps chromium
+
+      - name: Ejecutar pruebas E2E
+        working-directory: tests/e2e
+        run: npx playwright test
+
+      - name: Verificaciones OWASP dirigidas
+        # Solo si el script de seguridad ya está en el repositorio
+        if: always() && hashFiles('security/owasp-checks.mjs') != ''
+        run: |
+          npm run data:import --prefix app
+          node security/owasp-checks.mjs http://localhost:5001
+          cat evidencias/seguridad/owasp-checks.md >> $GITHUB_STEP_SUMMARY
+
+      - name: OWASP ZAP baseline (pasivo)
+        if: always()
+        run: |
+          mkdir -p evidencias/zap && chmod 777 evidencias/zap
+          docker run --rm --network host -v "$PWD:/zap/wrk:rw" zaproxy/zap-stable \
+            zap-baseline.py -t http://localhost:3000 -j -m 2 -I \
+            -r evidencias/zap/baseline-ci.html -J evidencias/zap/baseline-ci.json
+
+      - name: Subir reportes E2E y DAST
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reportes-e2e-dast
+          path: |
+            evidencias/playwright/
+            evidencias/zap/baseline-ci.*
+            evidencias/seguridad/owasp-checks.md
+            app.log
+
+  dependencias:
+    name: Auditoría de dependencias (npm audit)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: npm audit backend (dependencias de producción)
+        # Informativo: se reporta en el resumen sin bloquear el pipeline mientras DEF-17 siga abierto.
+        # Política objetivo: quitar continue-on-error cuando se actualicen mongoose/express.
+        continue-on-error: true
+        run: |
+          cd app
+          npm audit --omit=dev --audit-level=high | tee ../audit-backend.txt
+      - name: Resumen
+        if: always()
+        run: |
+          echo '### npm audit (backend, producción)' >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          tail -n 5 audit-backend.txt >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+
+  sonarqube:
+    name: Análisis estático (SonarQube)
+    runs-on: ubuntu-latest
+    needs: backend-tests
+    timeout-minutes: 15
+    env:
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+    steps:
+      - name: Verificar configuración
+        id: cfg
+        run: |
+          if [ -z "$SONAR_TOKEN" ] || [ -z "$SONAR_HOST_URL" ]; then
+            echo "habilitado=false" >> $GITHUB_OUTPUT
+            echo "SonarQube omitido: defina los secrets SONAR_TOKEN y SONAR_HOST_URL (SonarCloud o servidor propio)." >> $GITHUB_STEP_SUMMARY
+          else
+            echo "habilitado=true" >> $GITHUB_OUTPUT
+          fi
+      - uses: actions/checkout@v4
+        if: steps.cfg.outputs.habilitado == 'true'
+        with:
+          fetch-depth: 0
+      - uses: actions/download-artifact@v4
+        if: steps.cfg.outputs.habilitado == 'true'
+        with:
+          name: reportes-backend
+      - name: SonarQube Scan
+        if: steps.cfg.outputs.habilitado == 'true'
+        uses: SonarSource/sonarqube-scan-action@v5

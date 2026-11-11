@@ -1,0 +1,86 @@
+<testsuites id="" name="" tests="10" failures="0" skipped="0" errors="0" time="18.289609">
+<testsuite name="admin.spec.js" timestamp="2026-11-08T01:55:42.569Z" hostname="chromium" tests="2" failures="0" skipped="0" time="1.98" errors="0">
+<testcase name="Administración › E2E-09 el administrador crea y edita un producto" classname="admin.spec.js" time="1.128">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/admin-Administración-E2E-0-51d5a-or-crea-y-edita-un-producto-chromium/test-finished-1.png]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Administración › E2E-10 un cliente no administrador no ve el menú Admin ni accede a sus rutas" classname="admin.spec.js" time="0.852">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/admin-Administración-E2E-1-99950-Admin-ni-accede-a-sus-rutas-chromium/test-finished-1.png]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="auth.spec.js" timestamp="2026-11-08T01:55:42.569Z" hostname="chromium" tests="4" failures="0" skipped="0" time="2.456" errors="0">
+<testcase name="Autenticación › E2E-01 inicio de sesión con credenciales válidas" classname="auth.spec.js" time="0.605">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/auth-Autenticación-E2E-01--2c8df-ón-con-credenciales-válidas-chromium/test-finished-1.png]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Autenticación › E2E-02 inicio de sesión con contraseña incorrecta muestra error" classname="auth.spec.js" time="0.582">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/auth-Autenticación-E2E-02--c57a2-ña-incorrecta-muestra-error-chromium/test-finished-1.png]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Autenticación › E2E-03 registro: contraseñas distintas son rechazadas y luego registro exitoso" classname="auth.spec.js" time="0.684">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/auth-Autenticación-E2E-03--7405d-as-y-luego-registro-exitoso-chromium/test-finished-1.png]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Autenticación › E2E-04 rutas protegidas redirigen a /login sin sesión" classname="auth.spec.js" time="0.585">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/auth-Autenticación-E2E-04--30d5e-edirigen-a-login-sin-sesión-chromium/test-finished-1.png]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="catalog.spec.js" timestamp="2026-11-08T01:55:42.569Z" hostname="chromium" tests="3" failures="0" skipped="0" time="12.013" errors="0">
+<testcase name="Catálogo y búsqueda › E2E-05 búsqueda por palabra clave (PE: con y sin resultados)" classname="catalog.spec.js" time="0.618">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/catalog-Catálogo-y-búsqued-9364b-ve-PE-con-y-sin-resultados--chromium/test-finished-1.png]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Catálogo y búsqueda › E2E-06 producto sin stock (VL: countInStock = 0) no se puede agregar" classname="catalog.spec.js" time="0.533">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/catalog-Catálogo-y-búsqued-73e63-Stock-0-no-se-puede-agregar-chromium/test-finished-1.png]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Catálogo y búsqueda › E2E-07 [DEF-10] buscar &quot;(&quot; debe tratarse como texto y no mostrar error del servidor" classname="catalog.spec.js" time="10.862">
+<properties>
+<property name="fail" value="DEF-10: la palabra clave se usa como expresión regular sin escapar -&gt; error 500">
+</property>
+</properties>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/catalog-Catálogo-y-búsqued-548c5--mostrar-error-del-servidor-chromium/test-finished-1.png]]
+
+[[ATTACHMENT|test-results/catalog-Catálogo-y-búsqued-548c5--mostrar-error-del-servidor-chromium/error-context.md]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="checkout.spec.js" timestamp="2026-11-08T01:55:42.569Z" hostname="chromium" tests="1" failures="0" skipped="0" time="1.044" errors="0">
+<testcase name="E2E-08 compra de 2 Airpods: subtotal, envío gratis (&gt;100), IVA 15 % y creación del pedido" classname="checkout.spec.js" time="1.044">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results/checkout-E2E-08-compra-de--16670-VA-15-y-creación-del-pedido-chromium/test-finished-1.png]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+</testsuites>

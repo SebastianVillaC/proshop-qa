@@ -1,0 +1,638 @@
+{
+  "config": {
+    "argv": [
+      "/Users/sebastian/.local/share/mise/installs/node/24.15.0/bin/node",
+      "/Users/sebastian/Projects/Semestre8/AseguramientoDeLaCalidad/trabajoFinal/_staging/proshop-qa-completo/tests/e2e/node_modules/.bin/playwright",
+      "test"
+    ],
+    "configFile": "/Users/sebastian/Projects/Semestre8/AseguramientoDeLaCalidad/trabajoFinal/_staging/proshop-qa-completo/tests/e2e/playwright.config.js",
+    "rootDir": "/Users/sebastian/Projects/Semestre8/AseguramientoDeLaCalidad/trabajoFinal/_staging/proshop-qa-completo/tests/e2e/specs",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": "/Users/sebastian/Projects/Semestre8/AseguramientoDeLaCalidad/trabajoFinal/_staging/proshop-qa-completo/tests/e2e/global-setup.js",
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/sebastian/Projects/Semestre8/AseguramientoDeLaCalidad/trabajoFinal/_staging/proshop-qa-completo/evidencias/playwright/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/sebastian/Projects/Semestre8/AseguramientoDeLaCalidad/trabajoFinal/_staging/proshop-qa-completo/tests/e2e/specs",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/sebastian/Projects/Semestre8/AseguramientoDeLaCalidad/trabajoFinal/_staging/proshop-qa-completo/evidencias/playwright/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "/Users/sebastian/Projects/Semestre8/AseguramientoDeLaCalidad/trabajoFinal/_staging/proshop-qa-completo/tests/e2e/specs",
+        "snapshotDir": "/Users/sebastian/Projects/Semestre8/AseguramientoDeLaCalidad/trabajoFinal/_staging/proshop-qa-completo/tests/e2e/specs",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 45000,
+        "use": {
+          "baseURL": "http://localhost:3000",
+          "screenshot": "on",
+          "trace": "retain-on-failure",
+          "video": "retain-on-failure",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/158.0.8127.18 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "../../evidencias/playwright/html-report",
+          "open": "never"
+        }
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "../../evidencias/playwright/junit-e2e.xml"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../../evidencias/playwright/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.65.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "admin.spec.js",
+      "file": "admin.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Administración",
+          "file": "admin.spec.js",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "E2E-09 el administrador crea y edita un producto",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1128,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-08T01:55:42.722Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/sebastian/Projects/Semestre8/AseguramientoDeLaCalidad/trabajoFinal/_staging/proshop-qa-completo/evidencias/playwright/test-results/admin-Administración-E2E-0-51d5a-or-crea-y-edita-un-producto-chromium/test-finished-1.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "73482573f1568b679d78-4e611d5cdac373b8a4b1",
+              "file": "admin.spec.js",
+              "line": 6,
+              "column": 3
+            },
+            {
+              "title": "E2E-10 un cliente no administrador no ve el menú Admin ni accede a sus rutas",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 852,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-08T01:55:44.106Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/sebastian/Projects/Semestre8/AseguramientoDeLaCalidad/trabajoFinal/_staging/proshop-qa-completo/evidencias/playwright/test-results/admin-Administración-E2E-1-99950-Admin-ni-accede-a-sus-rutas-chromium/test-finished-1.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "73482573f1568b679d78-b30d36f51000956cff0a",
+              "file": "admin.spec.js",
+              "line": 30,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "auth.spec.js",
+      "file": "auth.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Autenticación",
+          "file": "auth.spec.js",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "E2E-01 inicio de sesión con credenciales válidas",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 605,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-08T01:55:44.963Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/sebastian/Projects/Semestre8/AseguramientoDeLaCalidad/trabajoFinal/_staging/proshop-qa-completo/evidencias/playwright/test-results/auth-Autenticación-E2E-01--2c8df-ón-con-credenciales-válidas-chromium/test-finished-1.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d5ed79a6b333c2ba7209-718a77a83119ae4f8f20",
+              "file": "auth.spec.js",
+              "line": 6,
+              "column": 3
+            },
+            {
+              "title": "E2E-02 inicio de sesión con contraseña incorrecta muestra error",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 582,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-08T01:55:45.572Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/sebastian/Projects/Semestre8/AseguramientoDeLaCalidad/trabajoFinal/_staging/proshop-qa-completo/evidencias/playwright/test-results/auth-Autenticación-E2E-02--c57a2-ña-incorrecta-muestra-error-chromium/test-finished-1.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d5ed79a6b333c2ba7209-acb205b14b70793fda78",
+              "file": "auth.spec.js",
+              "line": 12,
+              "column": 3
+            },
+            {
+              "title": "E2E-03 registro: contraseñas distintas son rechazadas y luego registro exitoso",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 684,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-08T01:55:46.157Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/sebastian/Projects/Semestre8/AseguramientoDeLaCalidad/trabajoFinal/_staging/proshop-qa-completo/evidencias/playwright/test-results/auth-Autenticación-E2E-03--7405d-as-y-luego-registro-exitoso-chromium/test-finished-1.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d5ed79a6b333c2ba7209-62f3685e26b1701040c1",
+              "file": "auth.spec.js",
+              "line": 19,
+              "column": 3
+            },
+            {
+              "title": "E2E-04 rutas protegidas redirigen a /login sin sesión",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 585,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-08T01:55:46.845Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/sebastian/Projects/Semestre8/AseguramientoDeLaCalidad/trabajoFinal/_staging/proshop-qa-completo/evidencias/playwright/test-results/auth-Autenticación-E2E-04--30d5e-edirigen-a-login-sin-sesión-chromium/test-finished-1.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d5ed79a6b333c2ba7209-deb415789a58c6ed40a6",
+              "file": "auth.spec.js",
+              "line": 35,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "catalog.spec.js",
+      "file": "catalog.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Catálogo y búsqueda",
+          "file": "catalog.spec.js",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "E2E-05 búsqueda por palabra clave (PE: con y sin resultados)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 618,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-08T01:55:47.437Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/sebastian/Projects/Semestre8/AseguramientoDeLaCalidad/trabajoFinal/_staging/proshop-qa-completo/evidencias/playwright/test-results/catalog-Catálogo-y-búsqued-9364b-ve-PE-con-y-sin-resultados--chromium/test-finished-1.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d4514cd69630520b3123-cb722498c22a264a67ed",
+              "file": "catalog.spec.js",
+              "line": 5,
+              "column": 3
+            },
+            {
+              "title": "E2E-06 producto sin stock (VL: countInStock = 0) no se puede agregar",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 533,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-08T01:55:48.058Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/sebastian/Projects/Semestre8/AseguramientoDeLaCalidad/trabajoFinal/_staging/proshop-qa-completo/evidencias/playwright/test-results/catalog-Catálogo-y-búsqued-73e63-Stock-0-no-se-puede-agregar-chromium/test-finished-1.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d4514cd69630520b3123-36343be5050b1e31ab39",
+              "file": "catalog.spec.js",
+              "line": 21,
+              "column": 3
+            },
+            {
+              "title": "E2E-07 [DEF-10] buscar \"(\" debe tratarse como texto y no mostrar error del servidor",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [
+                    {
+                      "type": "fail",
+                      "description": "DEF-10: la palabra clave se usa como expresión regular sin escapar -> error 500",
+                      "location": {
+                        "file": "/Users/sebastian/Projects/Semestre8/AseguramientoDeLaCalidad/trabajoFinal/_staging/proshop-qa-completo/tests/e2e/specs/catalog.spec.js",
+                        "line": 29,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "failed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 10862,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.alert-danger')\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" locator('.alert-danger') with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('.alert-danger')\u001b[22m\n\u001b[2m    24 × locator resolved to 1 element\u001b[22m\n\u001b[2m       - unexpected value \"1\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.alert-danger')\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" locator('.alert-danger') with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('.alert-danger')\u001b[22m\n\u001b[2m    24 × locator resolved to 1 element\u001b[22m\n\u001b[2m       - unexpected value \"1\"\u001b[22m\n\n    at /Users/sebastian/Projects/Semestre8/AseguramientoDeLaCalidad/trabajoFinal/_staging/proshop-qa-completo/tests/e2e/specs/catalog.spec.js:31:49",
+                        "location": {
+                          "file": "/Users/sebastian/Projects/Semestre8/AseguramientoDeLaCalidad/trabajoFinal/_staging/proshop-qa-completo/tests/e2e/specs/catalog.spec.js",
+                          "column": 49,
+                          "line": 31
+                        },
+                        "snippet": " \u001b[90m 29 |\u001b[39m     test\u001b[33m.\u001b[39mfail(\u001b[36mtrue\u001b[39m\u001b[33m,\u001b[39m \u001b[32m'DEF-10: la palabra clave se usa como expresión regular sin escapar -> error 500'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 30 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/search/('\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 31 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'.alert-danger'\u001b[39m))\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m0\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 32 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'heading'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m'Latest Products'\u001b[39m }))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 33 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 34 |\u001b[39m })\u001b[33m;\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/sebastian/Projects/Semestre8/AseguramientoDeLaCalidad/trabajoFinal/_staging/proshop-qa-completo/tests/e2e/specs/catalog.spec.js",
+                            "column": 49,
+                            "line": 31
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.alert-danger')\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" locator('.alert-danger') with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('.alert-danger')\u001b[22m\n\u001b[2m    24 × locator resolved to 1 element\u001b[22m\n\u001b[2m       - unexpected value \"1\"\u001b[22m\n\n\n  29 |     test.fail(true, 'DEF-10: la palabra clave se usa como expresión regular sin escapar -> error 500');\n  30 |     await page.goto('/search/(');\n> 31 |     await expect(page.locator('.alert-danger')).toHaveCount(0);\n     |                                                 ^\n  32 |     await expect(page.getByRole('heading', { name: 'Latest Products' })).toBeVisible();\n  33 |   });\n  34 | });\n    at /Users/sebastian/Projects/Semestre8/AseguramientoDeLaCalidad/trabajoFinal/_staging/proshop-qa-completo/tests/e2e/specs/catalog.spec.js:31:49"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-08T01:55:48.595Z",
+                      "annotations": [
+                        {
+                          "type": "fail",
+                          "description": "DEF-10: la palabra clave se usa como expresión regular sin escapar -> error 500",
+                          "location": {
+                            "file": "/Users/sebastian/Projects/Semestre8/AseguramientoDeLaCalidad/trabajoFinal/_staging/proshop-qa-completo/tests/e2e/specs/catalog.spec.js",
+                            "line": 29,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/sebastian/Projects/Semestre8/AseguramientoDeLaCalidad/trabajoFinal/_staging/proshop-qa-completo/evidencias/playwright/test-results/catalog-Catálogo-y-búsqued-548c5--mostrar-error-del-servidor-chromium/test-finished-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/sebastian/Projects/Semestre8/AseguramientoDeLaCalidad/trabajoFinal/_staging/proshop-qa-completo/evidencias/playwright/test-results/catalog-Catálogo-y-búsqued-548c5--mostrar-error-del-servidor-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/sebastian/Projects/Semestre8/AseguramientoDeLaCalidad/trabajoFinal/_staging/proshop-qa-completo/tests/e2e/specs/catalog.spec.js",
+                        "column": 49,
+                        "line": 31
+                      }
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d4514cd69630520b3123-8d5e1ec0ce851e98dbaf",
+              "file": "catalog.spec.js",
+              "line": 28,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "checkout.spec.js",
+      "file": "checkout.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "E2E-08 compra de 2 Airpods: subtotal, envío gratis (>100), IVA 15 % y creación del pedido",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1044,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-08T01:55:59.465Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/sebastian/Projects/Semestre8/AseguramientoDeLaCalidad/trabajoFinal/_staging/proshop-qa-completo/evidencias/playwright/test-results/checkout-E2E-08-compra-de--16670-VA-15-y-creación-del-pedido-chromium/test-finished-1.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "24e4b3ac21f7f473b7e5-112a9801ca6e4d00fb9e",
+          "file": "checkout.spec.js",
+          "line": 5,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-08T01:55:42.258Z",
+    "duration": 18289.609,
+    "expected": 10,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "proshop-qa-e2e",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Pruebas E2E automatizadas (Playwright) sobre ProShop v2",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "report": "playwright show-report ../../evidencias/playwright/html-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.0"
+  }
+}
