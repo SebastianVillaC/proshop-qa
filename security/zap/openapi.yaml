@@ -1,0 +1,117 @@
+openapi: 3.0.3
+info:
+  title: ProShop v2 API
+  version: 2.0.0
+  description: >
+    Especificación de la API REST de ProShop v2 reconstruida a partir de backend/routes
+    por el equipo de QA. Se usa como entrada del escaneo dinámico OWASP ZAP (zap-api-scan).
+servers:
+  - url: http://host.docker.internal:5001
+components:
+  securitySchemes:
+    cookieAuth: { type: apiKey, in: cookie, name: jwt }
+  schemas:
+    Credentials:
+      type: object
+      properties:
+        email: { type: string, example: john@email.com }
+        password: { type: string, example: '123456' }
+    NewUser:
+      type: object
+      properties:
+        name: { type: string, example: Usuario ZAP }
+        email: { type: string, example: zap@example.com }
+        password: { type: string, example: '123456' }
+    Review:
+      type: object
+      properties:
+        rating: { type: integer, example: 4 }
+        comment: { type: string, example: Buen producto }
+    Order:
+      type: object
+      properties:
+        orderItems:
+          type: array
+          items:
+            type: object
+            properties:
+              _id: { type: string, example: 000000000000000000000000 }
+              name: { type: string, example: Airpods }
+              qty: { type: integer, example: 1 }
+              image: { type: string, example: /images/airpods.jpg }
+              price: { type: number, example: 89.99 }
+        shippingAddress:
+          type: object
+          properties:
+            address: { type: string, example: Calle 73 }
+            city: { type: string, example: Medellin }
+            postalCode: { type: string, example: '050034' }
+            country: { type: string, example: Colombia }
+        paymentMethod: { type: string, example: PayPal }
+paths:
+  /api/products:
+    get:
+      summary: Listar/buscar productos
+      parameters:
+        - { name: keyword, in: query, schema: { type: string, example: phone } }
+        - { name: pageNumber, in: query, schema: { type: integer, example: 1 } }
+      responses: { '200': { description: OK } }
+  /api/products/top:
+    get:
+      summary: Productos mejor calificados
+      responses: { '200': { description: OK } }
+  /api/products/{id}:
+    get:
+      summary: Detalle de producto
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: string, example: 000000000000000000000000 } }
+      responses: { '200': { description: OK } }
+  /api/products/{id}/reviews:
+    post:
+      summary: Crear reseña
+      security: [{ cookieAuth: [] }]
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: string, example: 000000000000000000000000 } }
+      requestBody:
+        content: { application/json: { schema: { $ref: '#/components/schemas/Review' } } }
+      responses: { '201': { description: Creada } }
+  /api/users:
+    post:
+      summary: Registro de usuario
+      requestBody:
+        content: { application/json: { schema: { $ref: '#/components/schemas/NewUser' } } }
+      responses: { '201': { description: Creado } }
+  /api/users/auth:
+    post:
+      summary: Inicio de sesión
+      requestBody:
+        content: { application/json: { schema: { $ref: '#/components/schemas/Credentials' } } }
+      responses: { '200': { description: OK } }
+  /api/users/profile:
+    get:
+      summary: Ver perfil
+      security: [{ cookieAuth: [] }]
+      responses: { '200': { description: OK } }
+  /api/orders:
+    post:
+      summary: Crear pedido
+      security: [{ cookieAuth: [] }]
+      requestBody:
+        content: { application/json: { schema: { $ref: '#/components/schemas/Order' } } }
+      responses: { '201': { description: Creado } }
+  /api/orders/mine:
+    get:
+      summary: Pedidos del usuario
+      security: [{ cookieAuth: [] }]
+      responses: { '200': { description: OK } }
+  /api/orders/{id}:
+    get:
+      summary: Detalle de pedido
+      security: [{ cookieAuth: [] }]
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: string, example: 000000000000000000000000 } }
+      responses: { '200': { description: OK } }
+  /api/config/paypal:
+    get:
+      summary: Client ID de PayPal
+      responses: { '200': { description: OK } }

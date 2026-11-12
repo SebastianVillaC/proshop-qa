@@ -1,0 +1,30 @@
+     █ catálogo
+
+       ✓ catálogo 200
+       ✓ búsqueda 200
+       ✓ detalle 200
+
+     █ login
+
+       ✓ login 200
+
+   ✓ catalog_duration...............: avg=110.18ms min=418.7µs  med=3.49ms   max=2.29s  p(90)=341.06ms p(95)=742.85ms
+   ✓ checks.........................: 100.00% ✓ 4388      ✗ 0   
+     data_received..................: 6.5 MB  54 kB/s
+     data_sent......................: 562 kB  4.6 kB/s
+     group_duration.................: avg=458.17ms min=2.09ms   med=178.11ms max=2.87s  p(90)=1.33s    p(95)=1.56s   
+     http_req_blocked...............: avg=20.78µs  min=416ns    med=2.7µs    max=6.11ms p(90)=8.75µs   p(95)=12.97µs 
+     http_req_connecting............: avg=14.14µs  min=0s       med=0s       max=3ms    p(90)=0s       p(95)=0s      
+   ✓ http_req_duration..............: avg=228.93ms min=418.7µs  med=7.14ms   max=2.29s  p(90)=904.02ms p(95)=1.24s   
+       { expected_response:true }...: avg=228.93ms min=418.7µs  med=7.14ms   max=2.29s  p(90)=904.02ms p(95)=1.24s   
+   ✓ http_req_failed................: 0.00%   ✓ 0         ✗ 4388
+     http_req_receiving.............: avg=48.87µs  min=3.66µs   med=33.87µs  max=3.25ms p(90)=92.75µs  p(95)=123.8µs 
+     http_req_sending...............: avg=17.92µs  min=1.08µs   med=8.95µs   max=4.02ms p(90)=36.63µs  p(95)=51.59µs 
+     http_req_tls_handshaking.......: avg=0s       min=0s       med=0s       max=0s     p(90)=0s       p(95)=0s      
+     http_req_waiting...............: avg=228.87ms min=378.37µs med=7.07ms   max=2.29s  p(90)=903.99ms p(95)=1.24s   
+     http_reqs......................: 4388    36.026944/s
+     iteration_duration.............: avg=2.91s    min=2.05s    med=2.86s    max=5.39s  p(90)=4.05s    p(95)=4.32s   
+     iterations.....................: 1097    9.006736/s
+   ✓ login_duration.................: avg=585.19ms min=52.3ms   med=405.05ms max=2.11s  p(90)=1.37s    p(95)=1.56s   
+     vus............................: 2       min=0       max=50
+     vus_max........................: 50      min=50      max=50

@@ -1,0 +1,22 @@
+     ✓ catálogo 200
+     ✓ login 200
+
+     checks.........................: 100.00% ✓ 5214      ✗ 0    
+     data_received..................: 10 MB   73 kB/s
+     data_sent......................: 748 kB  5.3 kB/s
+     http_req_blocked...............: avg=76.09µs min=500ns   med=3.45µs  max=5.51ms   p(90)=8.9µs    p(95)=27.62µs 
+     http_req_connecting............: avg=67.04µs min=0s      med=0s      max=5.42ms   p(90)=0s       p(95)=0s      
+     http_req_duration..............: avg=2.36s   min=1.52ms  med=2.18s   max=21.25s   p(90)=4.4s     p(95)=5.03s   
+     ✗ { endpoint:catalogo }........: avg=2.61s   min=1.52ms  med=2.47s   max=21.25s   p(90)=4.89s    p(95)=5.45s   
+     ✗ { endpoint:login }...........: avg=2.11s   min=50.52ms med=2.13s   max=8.52s    p(90)=3.86s    p(95)=4.1s    
+       { expected_response:true }...: avg=2.36s   min=1.52ms  med=2.18s   max=21.25s   p(90)=4.4s     p(95)=5.03s   
+   ✓ http_req_failed................: 0.00%   ✓ 0         ✗ 5214 
+     http_req_receiving.............: avg=57.92µs min=4.2µs   med=32.54µs max=3.76ms   p(90)=101.47µs p(95)=144.05µs
+     http_req_sending...............: avg=22.41µs min=1.41µs  med=10.54µs max=640.87µs p(90)=38.87µs  p(95)=68.72µs 
+     http_req_tls_handshaking.......: avg=0s      min=0s      med=0s      max=0s       p(90)=0s       p(95)=0s      
+     http_req_waiting...............: avg=2.36s   min=1.49ms  med=2.18s   max=21.25s   p(90)=4.4s     p(95)=5.03s   
+     http_reqs......................: 5214    36.960297/s
+     iteration_duration.............: avg=5.73s   min=1.05s   med=5.74s   max=24s      p(90)=9.3s     p(95)=9.75s   
+     iterations.....................: 2607    18.480148/s
+     vus............................: 4       min=2       max=200
+     vus_max........................: 200     min=200     max=200time="2026-11-08T01:52:23Z" level=error msg="thresholds on metrics 'http_req_duration{endpoint:catalogo}, http_req_duration{endpoint:login}' have been crossed"
