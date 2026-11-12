@@ -81,7 +81,8 @@ jobs:
           --health-interval 10s --health-timeout 5s --health-retries 10
     env:
       NODE_ENV: development
-      PORT: 5001
+      # PORT NO se define a nivel de job: el frontend (Create React App) también lee PORT
+      # y chocaría con la API ("Something is already running on port 5001").
       MONGO_URI: mongodb://localhost:27017/proshop
       JWT_SECRET: ci-${{ github.run_id }}-secret
       PAGINATION_LIMIT: 8
@@ -110,8 +111,10 @@ jobs:
 
       - name: Levantar ProShop (API :5001 + frontend :3000)
         run: |
-          nohup npm run dev --prefix app > app.log 2>&1 &
-          npx --yes wait-on@8 --timeout 180000 http://localhost:5001/api/products http://localhost:3000
+          nohup env PORT=5001 npm run server --prefix app > api.log 2>&1 &
+          nohup env PORT=3000 npm run client --prefix app > web.log 2>&1 &
+          npx --yes wait-on@8 --timeout 240000 http://localhost:5001/api/products http://localhost:3000 \
+            || { echo '--- api.log'; tail -50 api.log; echo '--- web.log'; tail -50 web.log; exit 1; }
 
       - name: Instalar Playwright
         working-directory: tests/e2e
@@ -148,7 +151,8 @@ jobs:
             evidencias/playwright/
             evidencias/zap/baseline-ci.*
             evidencias/seguridad/owasp-checks.md
-            app.log
+            api.log
+            web.log
 
   dependencias:
     name: Auditoría de dependencias (npm audit)
