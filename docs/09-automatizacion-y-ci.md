@@ -52,7 +52,7 @@ security/
 
 | Suite | Comando | Pruebas | Resultado | Tiempo |
 |---|---|---|---|---|
-| Unitarias e integración | `npm run test:coverage` | 91 | 91 ✓ (70 de comportamiento correcto y 21 que documentan defectos abiertos) | ~9 s |
+| Unitarias e integración | `npm run test:coverage` | 91 | 91 ✓ (71 de comportamiento correcto y 20 que documentan defectos abiertos) | ~9 s |
 | E2E | `npx playwright test` | 10 | 10 ✓ (9 pasan y 1 falla como se esperaba: DEF-10) | ~18 s |
 | Cobertura del backend | Jest v8 | — | **85.9 % de líneas · 91.5 % de ramas** | — |
 

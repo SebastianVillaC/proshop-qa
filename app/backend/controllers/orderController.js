@@ -75,7 +75,11 @@ const getOrderById = asyncHandler(async (req, res) => {
     'name email'
   );
 
-  if (order) {
+  // FIX DEF-02 (IDOR - OWASP A01): solo el dueño del pedido o un administrador
+  // pueden consultarlo. Se responde 404 (no 403) para no revelar que el pedido existe.
+  const isOwner = order && order.user && order.user._id.equals(req.user._id);
+
+  if (order && (isOwner || req.user.isAdmin)) {
     res.json(order);
   } else {
     res.status(404);

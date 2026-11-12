@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="91" failures="0" errors="0" time="3.281">
-  <testsuite name="calcPrices - regla de envío (valores límite alrededor de 100)" errors="0" failures="0" skipped="0" timestamp="2026-11-08T02:06:25" time="0.163" tests="11">
+<testsuites name="jest tests" tests="91" failures="0" errors="0" time="2.921">
+  <testsuite name="calcPrices - regla de envío (valores límite alrededor de 100)" errors="0" failures="0" skipped="0" timestamp="2026-11-08T02:06:29" time="0.15" tests="11">
     <testcase classname="calcPrices - regla de envío (valores límite alrededor de 100) VL inferior: 99.99 -&gt; paga envío" name="calcPrices - regla de envío (valores límite alrededor de 100) VL inferior: 99.99 -&gt; paga envío" time="0.003">
     </testcase>
     <testcase classname="calcPrices - regla de envío (valores límite alrededor de 100) VL exacto: 100.00 -&gt; paga envío (la regla es estrictamente &gt; 100)" name="calcPrices - regla de envío (valores límite alrededor de 100) VL exacto: 100.00 -&gt; paga envío (la regla es estrictamente &gt; 100)" time="0">
@@ -13,29 +13,29 @@
     </testcase>
     <testcase classname="calcPrices - impuesto del 15 % y total carrito vacío (PE: sin items) -&gt; sólo cobra envío" name="calcPrices - impuesto del 15 % y total carrito vacío (PE: sin items) -&gt; sólo cobra envío" time="0">
     </testcase>
-    <testcase classname="calcPrices - impuesto del 15 % y total un producto real del catálogo (Airpods 89.99)" name="calcPrices - impuesto del 15 % y total un producto real del catálogo (Airpods 89.99)" time="0">
+    <testcase classname="calcPrices - impuesto del 15 % y total un producto real del catálogo (Airpods 89.99)" name="calcPrices - impuesto del 15 % y total un producto real del catálogo (Airpods 89.99)" time="0.001">
     </testcase>
-    <testcase classname="calcPrices - impuesto del 15 % y total varios productos y cantidades se acumulan" name="calcPrices - impuesto del 15 % y total varios productos y cantidades se acumulan" time="0.001">
+    <testcase classname="calcPrices - impuesto del 15 % y total varios productos y cantidades se acumulan" name="calcPrices - impuesto del 15 % y total varios productos y cantidades se acumulan" time="0">
     </testcase>
     <testcase classname="calcPrices - impuesto del 15 % y total redondeo a 2 decimales del impuesto (10.05 * 0.15 = 1.5075 -&gt; 1.51)" name="calcPrices - impuesto del 15 % y total redondeo a 2 decimales del impuesto (10.05 * 0.15 = 1.5075 -&gt; 1.51)" time="0">
     </testcase>
     <testcase classname="calcPrices - impuesto del 15 % y total evita errores de coma flotante (0.1 x 3 = 0.30)" name="calcPrices - impuesto del 15 % y total evita errores de coma flotante (0.1 x 3 = 0.30)" time="0">
     </testcase>
-    <testcase classname="calcPrices - impuesto del 15 % y total devuelve siempre strings con 2 decimales" name="calcPrices - impuesto del 15 % y total devuelve siempre strings con 2 decimales" time="0">
+    <testcase classname="calcPrices - impuesto del 15 % y total devuelve siempre strings con 2 decimales" name="calcPrices - impuesto del 15 % y total devuelve siempre strings con 2 decimales" time="0.001">
     </testcase>
   </testsuite>
-  <testsuite name="generateToken" errors="0" failures="0" skipped="0" timestamp="2026-11-08T02:06:25" time="0.219" tests="3">
-    <testcase classname="generateToken firma un JWT con el userId y lo guarda en la cookie &quot;jwt&quot;" name="generateToken firma un JWT con el userId y lo guarda en la cookie &quot;jwt&quot;" time="0.007">
+  <testsuite name="generateToken" errors="0" failures="0" skipped="0" timestamp="2026-11-08T02:06:29" time="0.172" tests="3">
+    <testcase classname="generateToken firma un JWT con el userId y lo guarda en la cookie &quot;jwt&quot;" name="generateToken firma un JWT con el userId y lo guarda en la cookie &quot;jwt&quot;" time="0.004">
     </testcase>
-    <testcase classname="generateToken el token expira en 30 días" name="generateToken el token expira en 30 días" time="0">
+    <testcase classname="generateToken el token expira en 30 días" name="generateToken el token expira en 30 días" time="0.001">
     </testcase>
     <testcase classname="generateToken la cookie es HttpOnly, SameSite=strict y Secure fuera de development" name="generateToken la cookie es HttpOnly, SameSite=strict y Secure fuera de development" time="0.001">
     </testcase>
   </testsuite>
-  <testsuite name="checkObjectId (PE: id válido / id inválido)" errors="0" failures="0" skipped="0" timestamp="2026-11-08T02:06:25" time="0.389" tests="11">
+  <testsuite name="checkObjectId (PE: id válido / id inválido)" errors="0" failures="0" skipped="0" timestamp="2026-11-08T02:06:29" time="0.314" tests="11">
     <testcase classname="checkObjectId (PE: id válido / id inválido) id con formato ObjectId válido -&gt; llama a next()" name="checkObjectId (PE: id válido / id inválido) id con formato ObjectId válido -&gt; llama a next()" time="0.004">
     </testcase>
-    <testcase classname="checkObjectId (PE: id válido / id inválido) id inválido &quot;abc&quot; -&gt; 404 y error" name="checkObjectId (PE: id válido / id inválido) id inválido &quot;abc&quot; -&gt; 404 y error" time="0.001">
+    <testcase classname="checkObjectId (PE: id válido / id inválido) id inválido &quot;abc&quot; -&gt; 404 y error" name="checkObjectId (PE: id válido / id inválido) id inválido &quot;abc&quot; -&gt; 404 y error" time="0.003">
     </testcase>
     <testcase classname="checkObjectId (PE: id válido / id inválido) id inválido &quot;123&quot; -&gt; 404 y error" name="checkObjectId (PE: id válido / id inválido) id inválido &quot;123&quot; -&gt; 404 y error" time="0">
     </testcase>
@@ -45,7 +45,7 @@
     </testcase>
     <testcase classname="admin (tabla de decisión: usuario autenticado x isAdmin) usuario no admin -&gt; 401" name="admin (tabla de decisión: usuario autenticado x isAdmin) usuario no admin -&gt; 401" time="0">
     </testcase>
-    <testcase classname="admin (tabla de decisión: usuario autenticado x isAdmin) sin usuario -&gt; 401" name="admin (tabla de decisión: usuario autenticado x isAdmin) sin usuario -&gt; 401" time="0">
+    <testcase classname="admin (tabla de decisión: usuario autenticado x isAdmin) sin usuario -&gt; 401" name="admin (tabla de decisión: usuario autenticado x isAdmin) sin usuario -&gt; 401" time="0.001">
     </testcase>
     <testcase classname="errorMiddleware notFound responde 404 con la ruta solicitada" name="errorMiddleware notFound responde 404 con la ruta solicitada" time="0">
     </testcase>
@@ -56,24 +56,24 @@
     <testcase classname="errorMiddleware en producción no expone el stack trace" name="errorMiddleware en producción no expone el stack trace" time="0">
     </testcase>
   </testsuite>
-  <testsuite name="RF08 - Carga de imágenes de producto" errors="0" failures="0" skipped="0" timestamp="2026-11-08T02:06:25" time="0.505" tests="4">
-    <testcase classname="RF08 - Carga de imágenes de producto PE inválida: .txt con mimetype text/plain -&gt; 400 &quot;Images only!&quot;" name="RF08 - Carga de imágenes de producto PE inválida: .txt con mimetype text/plain -&gt; 400 &quot;Images only!&quot;" time="0.02">
+  <testsuite name="RF08 - Carga de imágenes de producto" errors="0" failures="0" skipped="0" timestamp="2026-11-08T02:06:29" time="0.429" tests="4">
+    <testcase classname="RF08 - Carga de imágenes de producto PE inválida: .txt con mimetype text/plain -&gt; 400 &quot;Images only!&quot;" name="RF08 - Carga de imágenes de producto PE inválida: .txt con mimetype text/plain -&gt; 400 &quot;Images only!&quot;" time="0.015">
     </testcase>
-    <testcase classname="RF08 - Carga de imágenes de producto PE inválida: .svg (no permitido) -&gt; 400 &quot;Images only!&quot;" name="RF08 - Carga de imágenes de producto PE inválida: .svg (no permitido) -&gt; 400 &quot;Images only!&quot;" time="0.003">
+    <testcase classname="RF08 - Carga de imágenes de producto PE inválida: .svg (no permitido) -&gt; 400 &quot;Images only!&quot;" name="RF08 - Carga de imágenes de producto PE inválida: .svg (no permitido) -&gt; 400 &quot;Images only!&quot;" time="0.011">
     </testcase>
-    <testcase classname="RF08 - Carga de imágenes de producto PE inválida: .jpg con mimetype falso text/html -&gt; 400 &quot;Images only!&quot;" name="RF08 - Carga de imágenes de producto PE inválida: .jpg con mimetype falso text/html -&gt; 400 &quot;Images only!&quot;" time="0.001">
+    <testcase classname="RF08 - Carga de imágenes de producto PE inválida: .jpg con mimetype falso text/html -&gt; 400 &quot;Images only!&quot;" name="RF08 - Carga de imágenes de producto PE inválida: .jpg con mimetype falso text/html -&gt; 400 &quot;Images only!&quot;" time="0.002">
     </testcase>
-    <testcase classname="RF08 - Carga de imágenes de producto [DEF-03] un usuario anónimo NO debe poder subir archivos -&gt; 401" name="RF08 - Carga de imágenes de producto [DEF-03] un usuario anónimo NO debe poder subir archivos -&gt; 401" time="0.002">
+    <testcase classname="RF08 - Carga de imágenes de producto [DEF-03] un usuario anónimo NO debe poder subir archivos -&gt; 401" name="RF08 - Carga de imágenes de producto [DEF-03] un usuario anónimo NO debe poder subir archivos -&gt; 401" time="0.003">
     </testcase>
   </testsuite>
-  <testsuite name="RF04 - Catálogo, búsqueda y paginación" errors="0" failures="0" skipped="0" timestamp="2026-11-08T02:06:25" time="2.503" tests="24">
-    <testcase classname="RF04 - Catálogo, búsqueda y paginación lista los 6 productos semilla en 1 página" name="RF04 - Catálogo, búsqueda y paginación lista los 6 productos semilla en 1 página" time="0.318">
+  <testsuite name="RF04 - Catálogo, búsqueda y paginación" errors="0" failures="0" skipped="0" timestamp="2026-11-08T02:06:29" time="2.147" tests="24">
+    <testcase classname="RF04 - Catálogo, búsqueda y paginación lista los 6 productos semilla en 1 página" name="RF04 - Catálogo, búsqueda y paginación lista los 6 productos semilla en 1 página" time="0.313">
     </testcase>
-    <testcase classname="RF04 - Catálogo, búsqueda y paginación búsqueda PE coincidencia parcial (iPhone y Headphones) (&quot;phone&quot;) -&gt; 2 resultados" name="RF04 - Catálogo, búsqueda y paginación búsqueda PE coincidencia parcial (iPhone y Headphones) (&quot;phone&quot;) -&gt; 2 resultados" time="0.011">
+    <testcase classname="RF04 - Catálogo, búsqueda y paginación búsqueda PE coincidencia parcial (iPhone y Headphones) (&quot;phone&quot;) -&gt; 2 resultados" name="RF04 - Catálogo, búsqueda y paginación búsqueda PE coincidencia parcial (iPhone y Headphones) (&quot;phone&quot;) -&gt; 2 resultados" time="0.01">
     </testcase>
-    <testcase classname="RF04 - Catálogo, búsqueda y paginación búsqueda PE insensible a mayúsculas (&quot;CANNON&quot;) -&gt; 1 resultados" name="RF04 - Catálogo, búsqueda y paginación búsqueda PE insensible a mayúsculas (&quot;CANNON&quot;) -&gt; 1 resultados" time="0.006">
+    <testcase classname="RF04 - Catálogo, búsqueda y paginación búsqueda PE insensible a mayúsculas (&quot;CANNON&quot;) -&gt; 1 resultados" name="RF04 - Catálogo, búsqueda y paginación búsqueda PE insensible a mayúsculas (&quot;CANNON&quot;) -&gt; 1 resultados" time="0.005">
     </testcase>
-    <testcase classname="RF04 - Catálogo, búsqueda y paginación búsqueda PE sin coincidencias (&quot;zzzz&quot;) -&gt; 0 resultados" name="RF04 - Catálogo, búsqueda y paginación búsqueda PE sin coincidencias (&quot;zzzz&quot;) -&gt; 0 resultados" time="0.004">
+    <testcase classname="RF04 - Catálogo, búsqueda y paginación búsqueda PE sin coincidencias (&quot;zzzz&quot;) -&gt; 0 resultados" name="RF04 - Catálogo, búsqueda y paginación búsqueda PE sin coincidencias (&quot;zzzz&quot;) -&gt; 0 resultados" time="0.006">
     </testcase>
     <testcase classname="RF04 - Catálogo, búsqueda y paginación VL pageNumber=0 (no válido, se normaliza a 1)" name="RF04 - Catálogo, búsqueda y paginación VL pageNumber=0 (no válido, se normaliza a 1)" time="0.005">
     </testcase>
@@ -81,9 +81,9 @@
     </testcase>
     <testcase classname="RF04 - Catálogo, búsqueda y paginación VL pageNumber=2 (más allá de la última)" name="RF04 - Catálogo, búsqueda y paginación VL pageNumber=2 (más allá de la última)" time="0.003">
     </testcase>
-    <testcase classname="RF04 - Catálogo, búsqueda y paginación [DEF-09] VL pageNumber=-1 debe responder 200/400, no 500" name="RF04 - Catálogo, búsqueda y paginación [DEF-09] VL pageNumber=-1 debe responder 200/400, no 500" time="0.011">
+    <testcase classname="RF04 - Catálogo, búsqueda y paginación [DEF-09] VL pageNumber=-1 debe responder 200/400, no 500" name="RF04 - Catálogo, búsqueda y paginación [DEF-09] VL pageNumber=-1 debe responder 200/400, no 500" time="0.01">
     </testcase>
-    <testcase classname="RF04 - Catálogo, búsqueda y paginación [DEF-10] keyword con metacaracteres de regex &quot;(&quot; no debe producir 500" name="RF04 - Catálogo, búsqueda y paginación [DEF-10] keyword con metacaracteres de regex &quot;(&quot; no debe producir 500" time="0.005">
+    <testcase classname="RF04 - Catálogo, búsqueda y paginación [DEF-10] keyword con metacaracteres de regex &quot;(&quot; no debe producir 500" name="RF04 - Catálogo, búsqueda y paginación [DEF-10] keyword con metacaracteres de regex &quot;(&quot; no debe producir 500" time="0.004">
     </testcase>
     <testcase classname="RF04 - Catálogo, búsqueda y paginación top devuelve 3 productos ordenados por rating descendente" name="RF04 - Catálogo, búsqueda y paginación top devuelve 3 productos ordenados por rating descendente" time="0.004">
     </testcase>
@@ -93,13 +93,13 @@
     </testcase>
     <testcase classname="RF04 - Catálogo, búsqueda y paginación detalle con ObjectId válido inexistente -&gt; 404" name="RF04 - Catálogo, búsqueda y paginación detalle con ObjectId válido inexistente -&gt; 404" time="0.003">
     </testcase>
-    <testcase classname="RF05 - Reseñas POST /api/products/:id/reviews sin sesión -&gt; 401" name="RF05 - Reseñas POST /api/products/:id/reviews sin sesión -&gt; 401" time="0.006">
+    <testcase classname="RF05 - Reseñas POST /api/products/:id/reviews sin sesión -&gt; 401" name="RF05 - Reseñas POST /api/products/:id/reviews sin sesión -&gt; 401" time="0.005">
     </testcase>
-    <testcase classname="RF05 - Reseñas POST /api/products/:id/reviews VL rating=1 (límites válidos) -&gt; 201 y recalcula promedio" name="RF05 - Reseñas POST /api/products/:id/reviews VL rating=1 (límites válidos) -&gt; 201 y recalcula promedio" time="0.061">
+    <testcase classname="RF05 - Reseñas POST /api/products/:id/reviews VL rating=1 (límites válidos) -&gt; 201 y recalcula promedio" name="RF05 - Reseñas POST /api/products/:id/reviews VL rating=1 (límites válidos) -&gt; 201 y recalcula promedio" time="0.062">
     </testcase>
-    <testcase classname="RF05 - Reseñas POST /api/products/:id/reviews VL rating=5 (límites válidos) -&gt; 201 y recalcula promedio" name="RF05 - Reseñas POST /api/products/:id/reviews VL rating=5 (límites válidos) -&gt; 201 y recalcula promedio" time="0.059">
+    <testcase classname="RF05 - Reseñas POST /api/products/:id/reviews VL rating=5 (límites válidos) -&gt; 201 y recalcula promedio" name="RF05 - Reseñas POST /api/products/:id/reviews VL rating=5 (límites válidos) -&gt; 201 y recalcula promedio" time="0.061">
     </testcase>
-    <testcase classname="RF05 - Reseñas POST /api/products/:id/reviews un usuario no puede reseñar dos veces el mismo producto -&gt; 400" name="RF05 - Reseñas POST /api/products/:id/reviews un usuario no puede reseñar dos veces el mismo producto -&gt; 400" time="0.058">
+    <testcase classname="RF05 - Reseñas POST /api/products/:id/reviews un usuario no puede reseñar dos veces el mismo producto -&gt; 400" name="RF05 - Reseñas POST /api/products/:id/reviews un usuario no puede reseñar dos veces el mismo producto -&gt; 400" time="0.06">
     </testcase>
     <testcase classname="RF05 - Reseñas POST /api/products/:id/reviews [DEF-05] VL rating=0 (mínimo-1) debe rechazarse con 400" name="RF05 - Reseñas POST /api/products/:id/reviews [DEF-05] VL rating=0 (mínimo-1) debe rechazarse con 400" time="0.057">
     </testcase>
@@ -109,15 +109,15 @@
     </testcase>
     <testcase classname="RF08 - Administración de productos admin crea producto de ejemplo y luego lo edita" name="RF08 - Administración de productos admin crea producto de ejemplo y luego lo edita" time="0.06">
     </testcase>
-    <testcase classname="RF08 - Administración de productos admin elimina un producto -&gt; 200 y deja de existir" name="RF08 - Administración de productos admin elimina un producto -&gt; 200 y deja de existir" time="0.058">
+    <testcase classname="RF08 - Administración de productos admin elimina un producto -&gt; 200 y deja de existir" name="RF08 - Administración de productos admin elimina un producto -&gt; 200 y deja de existir" time="0.057">
     </testcase>
-    <testcase classname="RF08 - Administración de productos [DEF-06] VL precio negativo (-0.01) debe rechazarse con 400" name="RF08 - Administración de productos [DEF-06] VL precio negativo (-0.01) debe rechazarse con 400" time="0.057">
+    <testcase classname="RF08 - Administración de productos [DEF-06] VL precio negativo (-0.01) debe rechazarse con 400" name="RF08 - Administración de productos [DEF-06] VL precio negativo (-0.01) debe rechazarse con 400" time="0.059">
     </testcase>
-    <testcase classname="RF08 - Administración de productos [DEF-06] VL stock negativo (-1) debe rechazarse con 400" name="RF08 - Administración de productos [DEF-06] VL stock negativo (-1) debe rechazarse con 400" time="0.057">
+    <testcase classname="RF08 - Administración de productos [DEF-06] VL stock negativo (-1) debe rechazarse con 400" name="RF08 - Administración de productos [DEF-06] VL stock negativo (-1) debe rechazarse con 400" time="0.056">
     </testcase>
   </testsuite>
-  <testsuite name="RF01 - Autenticación POST /api/users/auth" errors="0" failures="0" skipped="0" timestamp="2026-11-08T02:06:25" time="2.894" tests="21">
-    <testcase classname="RF01 - Autenticación POST /api/users/auth credenciales válidas -&gt; 200, datos del usuario y cookie jwt HttpOnly" name="RF01 - Autenticación POST /api/users/auth credenciales válidas -&gt; 200, datos del usuario y cookie jwt HttpOnly" time="0.387">
+  <testsuite name="RF01 - Autenticación POST /api/users/auth" errors="0" failures="0" skipped="0" timestamp="2026-11-08T02:06:29" time="2.567" tests="21">
+    <testcase classname="RF01 - Autenticación POST /api/users/auth credenciales válidas -&gt; 200, datos del usuario y cookie jwt HttpOnly" name="RF01 - Autenticación POST /api/users/auth credenciales válidas -&gt; 200, datos del usuario y cookie jwt HttpOnly" time="0.357">
     </testcase>
     <testcase classname="RF01 - Autenticación POST /api/users/auth PE inválida: contraseña incorrecta -&gt; 401" name="RF01 - Autenticación POST /api/users/auth PE inválida: contraseña incorrecta -&gt; 401" time="0.058">
     </testcase>
@@ -127,17 +127,17 @@
     </testcase>
     <testcase classname="Seguridad de la autenticación (OWASP A03 / A02) [DEF-15] inyección NoSQL: {&quot;email&quot;:{&quot;$ne&quot;:null}} NO debe autenticar a ningún usuario" name="Seguridad de la autenticación (OWASP A03 / A02) [DEF-15] inyección NoSQL: {&quot;email&quot;:{&quot;$ne&quot;:null}} NO debe autenticar a ningún usuario" time="0.056">
     </testcase>
-    <testcase classname="Seguridad de la autenticación (OWASP A03 / A02) [DEF-16] el listado de usuarios (admin) no debe incluir el hash de la contraseña" name="Seguridad de la autenticación (OWASP A03 / A02) [DEF-16] el listado de usuarios (admin) no debe incluir el hash de la contraseña" time="0.058">
+    <testcase classname="Seguridad de la autenticación (OWASP A03 / A02) [DEF-16] el listado de usuarios (admin) no debe incluir el hash de la contraseña" name="Seguridad de la autenticación (OWASP A03 / A02) [DEF-16] el listado de usuarios (admin) no debe incluir el hash de la contraseña" time="0.059">
     </testcase>
-    <testcase classname="RF02 - Registro POST /api/users datos válidos -&gt; 201 y sesión iniciada" name="RF02 - Registro POST /api/users datos válidos -&gt; 201 y sesión iniciada" time="0.057">
+    <testcase classname="RF02 - Registro POST /api/users datos válidos -&gt; 201 y sesión iniciada" name="RF02 - Registro POST /api/users datos válidos -&gt; 201 y sesión iniciada" time="0.056">
     </testcase>
     <testcase classname="RF02 - Registro POST /api/users email ya registrado -&gt; 400" name="RF02 - Registro POST /api/users email ya registrado -&gt; 400" time="0.004">
     </testcase>
-    <testcase classname="RF02 - Registro POST /api/users VL: contraseña de 6 caracteres (mínimo) es aceptada" name="RF02 - Registro POST /api/users VL: contraseña de 6 caracteres (mínimo) es aceptada" time="0.055">
+    <testcase classname="RF02 - Registro POST /api/users VL: contraseña de 6 caracteres (mínimo) es aceptada" name="RF02 - Registro POST /api/users VL: contraseña de 6 caracteres (mínimo) es aceptada" time="0.056">
     </testcase>
-    <testcase classname="RF02 - Registro POST /api/users [DEF-07] VL: contraseña de 5 caracteres (mínimo-1) debe rechazarse con 400" name="RF02 - Registro POST /api/users [DEF-07] VL: contraseña de 5 caracteres (mínimo-1) debe rechazarse con 400" time="0.056">
+    <testcase classname="RF02 - Registro POST /api/users [DEF-07] VL: contraseña de 5 caracteres (mínimo-1) debe rechazarse con 400" name="RF02 - Registro POST /api/users [DEF-07] VL: contraseña de 5 caracteres (mínimo-1) debe rechazarse con 400" time="0.055">
     </testcase>
-    <testcase classname="RF02 - Registro POST /api/users [DEF-07] PE inválida: email sin formato válido debe rechazarse con 400" name="RF02 - Registro POST /api/users [DEF-07] PE inválida: email sin formato válido debe rechazarse con 400" time="0.056">
+    <testcase classname="RF02 - Registro POST /api/users [DEF-07] PE inválida: email sin formato válido debe rechazarse con 400" name="RF02 - Registro POST /api/users [DEF-07] PE inválida: email sin formato válido debe rechazarse con 400" time="0.055">
     </testcase>
     <testcase classname="RF02 - Registro POST /api/users [DEF-08] email duplicado con distinta capitalización debe rechazarse" name="RF02 - Registro POST /api/users [DEF-08] email duplicado con distinta capitalización debe rechazarse" time="0.056">
     </testcase>
@@ -147,53 +147,53 @@
     </testcase>
     <testcase classname="RF03 - Perfil /api/users/profile token manipulado -&gt; 401" name="RF03 - Perfil /api/users/profile token manipulado -&gt; 401" time="0.004">
     </testcase>
-    <testcase classname="RF03 - Perfil /api/users/profile con sesión -&gt; 200 y no expone el hash de la contraseña" name="RF03 - Perfil /api/users/profile con sesión -&gt; 200 y no expone el hash de la contraseña" time="0.055">
+    <testcase classname="RF03 - Perfil /api/users/profile con sesión -&gt; 200 y no expone el hash de la contraseña" name="RF03 - Perfil /api/users/profile con sesión -&gt; 200 y no expone el hash de la contraseña" time="0.057">
     </testcase>
-    <testcase classname="RF03 - Perfil /api/users/profile actualizar sólo el nombre conserva la contraseña" name="RF03 - Perfil /api/users/profile actualizar sólo el nombre conserva la contraseña" time="0.163">
+    <testcase classname="RF03 - Perfil /api/users/profile actualizar sólo el nombre conserva la contraseña" name="RF03 - Perfil /api/users/profile actualizar sólo el nombre conserva la contraseña" time="0.162">
     </testcase>
     <testcase classname="RF03 - Perfil /api/users/profile [DEF-09] cambiar el email a uno existente debe responder 400 (hoy 500)" name="RF03 - Perfil /api/users/profile [DEF-09] cambiar el email a uno existente debe responder 400 (hoy 500)" time="0.117">
     </testcase>
     <testcase classname="Administración de usuarios cliente no admin no puede listar usuarios -&gt; 401" name="Administración de usuarios cliente no admin no puede listar usuarios -&gt; 401" time="0.056">
     </testcase>
-    <testcase classname="Administración de usuarios admin lista los 3 usuarios semilla" name="Administración de usuarios admin lista los 3 usuarios semilla" time="0.055">
+    <testcase classname="Administración de usuarios admin lista los 3 usuarios semilla" name="Administración de usuarios admin lista los 3 usuarios semilla" time="0.056">
     </testcase>
-    <testcase classname="Administración de usuarios no se puede eliminar un usuario administrador -&gt; 400" name="Administración de usuarios no se puede eliminar un usuario administrador -&gt; 400" time="0.057">
+    <testcase classname="Administración de usuarios no se puede eliminar un usuario administrador -&gt; 400" name="Administración de usuarios no se puede eliminar un usuario administrador -&gt; 400" time="0.06">
     </testcase>
   </testsuite>
-  <testsuite name="RF06 - Creación de pedido POST /api/orders" errors="0" failures="0" skipped="0" timestamp="2026-11-08T02:06:25" time="3.172" tests="17">
-    <testcase classname="RF06 - Creación de pedido POST /api/orders sin sesión -&gt; 401" name="RF06 - Creación de pedido POST /api/orders sin sesión -&gt; 401" time="0.317">
+  <testsuite name="RF06 - Creación de pedido POST /api/orders" errors="0" failures="0" skipped="0" timestamp="2026-11-08T02:06:29" time="2.838" tests="17">
+    <testcase classname="RF06 - Creación de pedido POST /api/orders sin sesión -&gt; 401" name="RF06 - Creación de pedido POST /api/orders sin sesión -&gt; 401" time="0.322">
     </testcase>
-    <testcase classname="RF06 - Creación de pedido POST /api/orders calcula totales en el servidor (Airpods 89.99 x1: envío 10, IVA 13.50)" name="RF06 - Creación de pedido POST /api/orders calcula totales en el servidor (Airpods 89.99 x1: envío 10, IVA 13.50)" time="0.075">
+    <testcase classname="RF06 - Creación de pedido POST /api/orders calcula totales en el servidor (Airpods 89.99 x1: envío 10, IVA 13.50)" name="RF06 - Creación de pedido POST /api/orders calcula totales en el servidor (Airpods 89.99 x1: envío 10, IVA 13.50)" time="0.078">
     </testcase>
-    <testcase classname="RF06 - Creación de pedido POST /api/orders ignora el precio enviado por el cliente (manipulación de precio)" name="RF06 - Creación de pedido POST /api/orders ignora el precio enviado por el cliente (manipulación de precio)" time="0.058">
+    <testcase classname="RF06 - Creación de pedido POST /api/orders ignora el precio enviado por el cliente (manipulación de precio)" name="RF06 - Creación de pedido POST /api/orders ignora el precio enviado por el cliente (manipulación de precio)" time="0.059">
     </testcase>
-    <testcase classname="RF06 - Creación de pedido POST /api/orders VL subtotal &gt; 100 (Mouse 49.99 x3 = 149.97) -&gt; envío gratis" name="RF06 - Creación de pedido POST /api/orders VL subtotal &gt; 100 (Mouse 49.99 x3 = 149.97) -&gt; envío gratis" time="0.057">
+    <testcase classname="RF06 - Creación de pedido POST /api/orders VL subtotal &gt; 100 (Mouse 49.99 x3 = 149.97) -&gt; envío gratis" name="RF06 - Creación de pedido POST /api/orders VL subtotal &gt; 100 (Mouse 49.99 x3 = 149.97) -&gt; envío gratis" time="0.058">
     </testcase>
     <testcase classname="RF06 - Creación de pedido POST /api/orders lista de items vacía -&gt; 400 &quot;No order items&quot;" name="RF06 - Creación de pedido POST /api/orders lista de items vacía -&gt; 400 &quot;No order items&quot;" time="0.057">
     </testcase>
-    <testcase classname="RF06 - Creación de pedido POST /api/orders [DEF-09] cuerpo sin orderItems debe responder 400 (hoy 500)" name="RF06 - Creación de pedido POST /api/orders [DEF-09] cuerpo sin orderItems debe responder 400 (hoy 500)" time="0.057">
+    <testcase classname="RF06 - Creación de pedido POST /api/orders [DEF-09] cuerpo sin orderItems debe responder 400 (hoy 500)" name="RF06 - Creación de pedido POST /api/orders [DEF-09] cuerpo sin orderItems debe responder 400 (hoy 500)" time="0.058">
     </testcase>
-    <testcase classname="RF06 - Creación de pedido POST /api/orders [DEF-01] VL cantidad 0 debe rechazarse con 400" name="RF06 - Creación de pedido POST /api/orders [DEF-01] VL cantidad 0 debe rechazarse con 400" time="0.058">
+    <testcase classname="RF06 - Creación de pedido POST /api/orders [DEF-01] VL cantidad 0 debe rechazarse con 400" name="RF06 - Creación de pedido POST /api/orders [DEF-01] VL cantidad 0 debe rechazarse con 400" time="0.057">
     </testcase>
-    <testcase classname="RF06 - Creación de pedido POST /api/orders [DEF-01] PE cantidad negativa (-5) debe rechazarse (hoy genera total negativo)" name="RF06 - Creación de pedido POST /api/orders [DEF-01] PE cantidad negativa (-5) debe rechazarse (hoy genera total negativo)" time="0.061">
+    <testcase classname="RF06 - Creación de pedido POST /api/orders [DEF-01] PE cantidad negativa (-5) debe rechazarse (hoy genera total negativo)" name="RF06 - Creación de pedido POST /api/orders [DEF-01] PE cantidad negativa (-5) debe rechazarse (hoy genera total negativo)" time="0.058">
     </testcase>
     <testcase classname="RF06 - Creación de pedido POST /api/orders VL cantidad = stock disponible (Airpods, 10) es aceptada" name="RF06 - Creación de pedido POST /api/orders VL cantidad = stock disponible (Airpods, 10) es aceptada" time="0.057">
     </testcase>
     <testcase classname="RF06 - Creación de pedido POST /api/orders [DEF-04] VL cantidad = stock + 1 debe rechazarse con 400" name="RF06 - Creación de pedido POST /api/orders [DEF-04] VL cantidad = stock + 1 debe rechazarse con 400" time="0.057">
     </testcase>
-    <testcase classname="RF07 - Consulta de pedidos y control de acceso /mine devuelve sólo los pedidos del usuario autenticado" name="RF07 - Consulta de pedidos y control de acceso /mine devuelve sólo los pedidos del usuario autenticado" time="0.166">
+    <testcase classname="RF07 - Consulta de pedidos y control de acceso /mine devuelve sólo los pedidos del usuario autenticado" name="RF07 - Consulta de pedidos y control de acceso /mine devuelve sólo los pedidos del usuario autenticado" time="0.168">
     </testcase>
-    <testcase classname="RF07 - Consulta de pedidos y control de acceso el dueño puede ver su pedido -&gt; 200" name="RF07 - Consulta de pedidos y control de acceso el dueño puede ver su pedido -&gt; 200" time="0.114">
+    <testcase classname="RF07 - Consulta de pedidos y control de acceso el dueño puede ver su pedido -&gt; 200" name="RF07 - Consulta de pedidos y control de acceso el dueño puede ver su pedido -&gt; 200" time="0.113">
     </testcase>
-    <testcase classname="RF07 - Consulta de pedidos y control de acceso el administrador puede ver cualquier pedido -&gt; 200" name="RF07 - Consulta de pedidos y control de acceso el administrador puede ver cualquier pedido -&gt; 200" time="0.111">
+    <testcase classname="RF07 - Consulta de pedidos y control de acceso el administrador puede ver cualquier pedido -&gt; 200" name="RF07 - Consulta de pedidos y control de acceso el administrador puede ver cualquier pedido -&gt; 200" time="0.112">
     </testcase>
-    <testcase classname="RF07 - Consulta de pedidos y control de acceso [DEF-02] otro cliente NO debe poder ver el pedido ajeno (IDOR) -&gt; 403/404" name="RF07 - Consulta de pedidos y control de acceso [DEF-02] otro cliente NO debe poder ver el pedido ajeno (IDOR) -&gt; 403/404" time="0.11">
+    <testcase classname="RF07 - Consulta de pedidos y control de acceso [DEF-02] otro cliente NO debe poder ver el pedido ajeno (IDOR) -&gt; 404" name="RF07 - Consulta de pedidos y control de acceso [DEF-02] otro cliente NO debe poder ver el pedido ajeno (IDOR) -&gt; 404" time="0.112">
     </testcase>
     <testcase classname="RF07 - Consulta de pedidos y control de acceso [DEF-09] id de pedido mal formado debe responder 404 (hoy 500)" name="RF07 - Consulta de pedidos y control de acceso [DEF-09] id de pedido mal formado debe responder 404 (hoy 500)" time="0.056">
     </testcase>
-    <testcase classname="RF07 - Consulta de pedidos y control de acceso cliente no admin no puede marcar como entregado -&gt; 401" name="RF07 - Consulta de pedidos y control de acceso cliente no admin no puede marcar como entregado -&gt; 401" time="0.108">
+    <testcase classname="RF07 - Consulta de pedidos y control de acceso cliente no admin no puede marcar como entregado -&gt; 401" name="RF07 - Consulta de pedidos y control de acceso cliente no admin no puede marcar como entregado -&gt; 401" time="0.109">
     </testcase>
-    <testcase classname="RF07 - Consulta de pedidos y control de acceso admin marca el pedido como entregado -&gt; 200" name="RF07 - Consulta de pedidos y control de acceso admin marca el pedido como entregado -&gt; 200" time="0.107">
+    <testcase classname="RF07 - Consulta de pedidos y control de acceso admin marca el pedido como entregado -&gt; 200" name="RF07 - Consulta de pedidos y control de acceso admin marca el pedido como entregado -&gt; 200" time="0.11">
     </testcase>
   </testsuite>
 </testsuites>

@@ -117,11 +117,15 @@ describe('RF07 - Consulta de pedidos y control de acceso', () => {
     expect(res.status).toBe(200);
   });
 
-  test.failing('[DEF-02] otro cliente NO debe poder ver el pedido ajeno (IDOR) -> 403/404', async () => {
+  // Prueba de regresión de DEF-02 (corregido). Antes era test.failing: Jane obtenía HTTP 200.
+  test('[DEF-02] otro cliente NO debe poder ver el pedido ajeno (IDOR) -> 404', async () => {
     const order = await crearOrden('john@email.com', orderBody(byName('Airpods'), 1));
     const cookie = await loginCookie('jane@email.com');
     const res = await request(app).get(`/api/orders/${order.body._id}`).set('Cookie', cookie);
-    expect([403, 404]).toContain(res.status);
+    expect(res.status).toBe(404);
+    expect(res.body.message).toBe('Order not found');
+    expect(res.body.user).toBeUndefined();
+    expect(res.body.shippingAddress).toBeUndefined();
   });
 
   test.failing('[DEF-09] id de pedido mal formado debe responder 404 (hoy 500)', async () => {

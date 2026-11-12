@@ -41,7 +41,7 @@ Se combinaron cuatro enfoques complementarios, porque ninguna herramienta por s�
 - **Ubicación:** `backend/controllers/orderController.js` → `getOrderById`. La ruta solo exige `protect` (estar autenticado) y no verifica que el pedido pertenezca al usuario.
 - **Evidencia:** CP-13 (captura `CP-13-pedido-ajeno-visible.png`), SEC-01 y la prueba de integración `[DEF-02]`. Jane obtiene HTTP 200 con el nombre, el email, la **dirección postal** y los productos del pedido de John.
 - **Impacto:** exposición de datos personales (habeas data, Ley 1581 de 2012 en Colombia). Los ids son ObjectId de MongoDB, que se pueden predecir en parte (marca de tiempo + contador), así que la enumeración es viable.
-- **Mitigación:** comparar `order.user._id` con `req.user._id` y permitir el acceso solo al dueño o a un admin. Si no aplica, responder **404** para no revelar que el pedido existe. Hacer lo mismo en `PUT /:id/pay`. **Corrección planificada como P1** (ver `docs/08`).
+- **Mitigación:** comparar `order.user._id` con `req.user._id` y permitir el acceso solo al dueño o a un admin. Si no aplica, responder **404** para no revelar que el pedido existe. Hacer lo mismo en `PUT /:id/pay`. **Aplicada en este repositorio** (ver `docs/08`, ciclo de vida de DEF-02).
 
 ### VUL-02: carga de archivos sin autenticación (A01) · **Alto (P3 × I2 = 6)** · DEF-03
 - **Ubicación:** `backend/routes/uploadRoutes.js`. `router.post('/')` no tiene los middlewares `protect` ni `admin`.
@@ -169,7 +169,7 @@ ZAP **tampoco** detectó el IDOR (VUL-01), porque no conoce la relación entre e
 
 | Prioridad | Acción | Mitiga | Esfuerzo |
 |---|---|---|---|
-| 1 | Verificar la propiedad del recurso en pedidos | VUL-01 | 30 min |
+| 1 | Verificar la propiedad del recurso en pedidos (hecho para `GET /:id`) | VUL-01 | 30 min |
 | 2 | Validar tipos y rangos de la entrada con `express-validator` o `zod`, activar `sanitizeFilter` y escapar el regex | VUL-03, VUL-04, VUL-05, DEF-05/06/07 | 1 día |
 | 3 | `protect, admin` y `limits.fileSize` en la carga | VUL-02 | 15 min |
 | 4 | `express-rate-limit` en el login y una política de contraseñas | VUL-09 | 2 h |

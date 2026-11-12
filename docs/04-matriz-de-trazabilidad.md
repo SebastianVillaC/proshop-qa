@@ -10,7 +10,7 @@ Relaciona cada requisito con los casos que lo verifican en cada nivel y con los 
 | RF04 Catálogo y búsqueda | CP-05 | E2E-05, E2E-07 | `products.api` RF04 (12) | ZAP 40018, SEC-04 | DEF-09, DEF-10 | ❌ No cumple (caracteres especiales) |
 | RF05 Reseñas | CP-09 | — | `products.api` RF05 (5) | — | DEF-05 | ⚠️ La interfaz cumple; la API acepta rangos inválidos |
 | RF06 Pedido y precios | CP-06, CP-07, CP-08 | E2E-06, E2E-08 | `calcPrices` (11), `orders.api` RF06 (10) | SEC-03, SEC-12 | DEF-01, DEF-04, DEF-09 | ❌ No cumple (validación de cantidades) |
-| RF07 Consulta de pedidos | CP-13 | — | `orders.api` RF07 (7) | SEC-01 | DEF-02 | ❌ No cumple (IDOR: un cliente ve pedidos ajenos) |
+| RF07 Consulta de pedidos | CP-13 | — | `orders.api` RF07 (7) | SEC-01 | DEF-02 (corregido) | ✅ Cumple después de corregir DEF-02 |
 | RF08 Admin de productos | CP-10, CP-11 | E2E-09 | `products.api` RF08 (5), `upload.api` (4) | SEC-02, SonarQube S5693 | DEF-03, DEF-06 | ❌ No cumple |
 | RF09 Control de acceso por rol | — | E2E-04, E2E-10 | `middleware` admin (3), pruebas 401 de cada suite | SEC-11, SEC-13 | DEF-03, DEF-16 | ⚠️ La interfaz cumple; la API tiene una ruta sin proteger (upload) |
 | RNF01 Tiempo de respuesta | — | — | — | k6 `load.js`, `stress.js` | — | ✅ Cumple con 50 VUs (p95 1.13 s) |
@@ -29,7 +29,7 @@ Relaciona cada requisito con los casos que lo verifican en cada nivel y con los 
 |---|---|
 | Requisitos con al menos una prueba | **18 / 18 (100 %)** |
 | Requisitos verificados en más de un nivel (manual, E2E, API o no funcional) | 13 / 18 (72 %) |
-| Requisitos que cumplen totalmente | 4 / 18 (22 %): RNF01, RNF02, RNF06 y RNF08 |
-| Requisitos con defectos abiertos | 14 / 18 (78 %) |
+| Requisitos que cumplen totalmente | 5 / 18 (28 %): RF07, RNF01, RNF02, RNF06 y RNF08 |
+| Requisitos con defectos abiertos | 13 / 18 (72 %) |
 
-> Nota: estado al cierre del ciclo 1 de ejecución. Se actualizará después de corregir defectos (ver `docs/08`).
+> Nota: RF07 aparece como cumplido solo después de corregir y verificar DEF-02 (ver `docs/08`). Antes de la corrección, solo 4 / 18 requisitos (22 %) cumplían.
