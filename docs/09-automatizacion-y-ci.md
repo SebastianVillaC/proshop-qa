@@ -104,4 +104,5 @@ push / PR ─► [1] backend-tests ──► [2] e2e-y-dast ──────�
 | Selector ambiguo (`/^Order /` coincidía con 3 encabezados) | `getByRole('heading', { level: 1, … })` |
 | Las redirecciones de `AdminRoute` y luego `LoginScreen` (sesión activa) llevaban a `/` en vez de `/login` | Se ajustó la aserción al comportamiento correcto: no permanecer en `/admin/*` |
 | El puerto 5000 estaba ocupado por AirPlay (macOS) | Backend en :5001 y proxy del frontend actualizado |
+| **Primera ejecución en GitHub Actions falló:** el job E2E no levantaba el frontend. Con `PORT=5001` definido para todo el job, Create React App también lo leía (*"Something is already running on port 5001"*). En local no ocurría porque `PORT` solo estaba en `app/.env` (backend) | Se reprodujo el fallo en un contenedor `node:20` y se definió el puerto por proceso (`PORT=5001` para la API y `PORT=3000` para el frontend). Además el paso imprime los logs si falla (commit `fix(ci)`) |
 | El pago con PayPal requiere credenciales y un servicio externo | Fuera de alcance. El E2E llega hasta la creación del pedido ("Not Paid") |

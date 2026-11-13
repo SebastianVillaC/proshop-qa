@@ -73,11 +73,13 @@ El registro completo está en `docs/08-gestion-de-defectos.md` y en GitHub Issue
 
 1. `app/frontend/package.json`: el proxy pasa de `:5000` a `:5001`. En macOS el puerto 5000 lo ocupa el receptor AirPlay. `PORT=5001` está en `app/.env.example`.
 2. `app/package-lock.json` y `app/frontend/package-lock.json` se regeneraron porque los originales **no estaban sincronizados** con `package.json` (les faltaban `@types/express` y `markdown-toc`) y `npm ci` fallaba. Las versiones instaladas no cambian.
+3. `app/backend/app.js` y `server.js`: se separa la creación de la app Express del arranque del servidor. Es un refactor de testabilidad, sin cambios funcionales, que permite pruebas de integración con Supertest.
+4. Corrección de defectos registrados, cada una con su prueba de regresión. Ver `docs/08-gestion-de-defectos.md`.
 
 ## Equipo
 
 | Integrante | Responsabilidad principal |
 |---|---|
 | Sebastián Villa | Contexto y requisitos, pruebas unitarias y de integración, SonarQube y métricas |
-| Integrante 2 | Plan de pruebas, casos de prueba manuales, automatización E2E y CI/CD |
-| Integrante 3 | Rendimiento, seguridad (OWASP ZAP y Top 10) y gestión de defectos |
+| Jhon Eduardo Zabala Garzon | Plan de pruebas, casos de prueba manuales, automatización E2E y CI/CD |
+| Robin Alexander Montoya Velasquez | Rendimiento, seguridad (OWASP ZAP y Top 10) y gestión de defectos |
